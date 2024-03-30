@@ -4,15 +4,38 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>关于 Farm 的构建尝试 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="关于 Farm 的构建尝试极速的 Web 构建工具 Farm  是一个基于 Rust 实现的极速构建引擎，帮助您更快地构建 Web 程序 和 JavaScript 库。 为什么需要 Farm？vite 等工具使用的 Unbundled 模式并不完美，对于大型项目来说仍然存在很大的问题：  大量的模块请求：对于一个大型项目，使用（原生 ESM，在 dev server 启动时不对源文件进行编译和打包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于 Farm 的构建尝试">
+<meta property="og:url" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于 Farm 的构建尝试极速的 Web 构建工具 Farm  是一个基于 Rust 实现的极速构建引擎，帮助您更快地构建 Web 程序 和 JavaScript 库。 为什么需要 Farm？vite 等工具使用的 Unbundled 模式并不完美，对于大型项目来说仍然存在很大的问题：  大量的模块请求：对于一个大型项目，使用（原生 ESM，在 dev server 启动时不对源文件进行编译和打包">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/45c3b68fdb98f38f7cc49dc736664f614ec1aeea.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/4958563de7659ec89a0a5fbadb33a3bf189e8b7d.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/1295523d1f25223cfbc85136c2be141d4e5fa003.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/90239e03436596d741774256f4ca03e49a4f6651.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/11eb324c1d66a57eac6f4a8420034171e6ccb01e.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/7046097021a312053c38fbbab9a687ecdc7c7cf1.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/59745cca1dbdd5fe8a628f70aa0c9ff91adc58e2.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/0325ce6969d8c6914f8d94deb75bc63c683db6fd.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/e2ae5a24d50b283373fae2f023ee1a733f7e5aca.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/0325ce6969d8c6914f8d94deb75bc63c683db6fd.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/28233e8842c6d969dfbe683ab9acda9ccd1e6635.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/8c367b7f26c5fb3d8ffcb25937d2148e309a486d.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/77cf0a3c6e22d57732358e7add0303d67c667d7e.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/fdb45652be28b384d9fd9ccdf11a126faf9e6a39.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/1683e04e4f50ac27a53b5b9c474ce4dd3d2fca5b.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/9b07b8a6434ca80e61ff778f748c6135a01e109f.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/18ebf302361fcdda24503edf15dd46f781b6df41.png">
+<meta property="og:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/3855fee1a6bcd97cd3bf757112095102e82f3880.png">
+<meta property="article:published_time" content="2024-03-30T13:57:34.000Z">
+<meta property="article:modified_time" content="2024-03-30T14:10:32.552Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/assets/45c3b68fdb98f38f7cc49dc736664f614ec1aeea.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,9 +92,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-关于-Farm-的构建尝试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-关于-Farm-的构建尝试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/" class="article-date">
   <time class="dt-published" datetime="2024-03-30T13:57:34.000Z" itemprop="datePublished">2024-03-30</time>
@@ -84,8 +105,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/03/30/%E5%85%B3%E4%BA%8E-Farm-%E7%9A%84%E6%9E%84%E5%BB%BA%E5%B0%9D%E8%AF%95/">关于 Farm 的构建尝试</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      关于 Farm 的构建尝试
     </h1>
   
 
@@ -234,313 +255,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Yapi-搭建｜接口导入导出" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/" class="article-date">
-  <time class="dt-published" datetime="2023-05-03T13:52:37.000Z" itemprop="datePublished">2023-05-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/">Yapi-搭建｜接口导入导出</a>
-    </h1>
+    <a href="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Yapi-搭建｜接口导入导出</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><ol>
-<li><p>什么是 Yapi ？</p>
-<p>旨在为开发、产品、测试人员提供更优雅的接口管理服务。可以帮助开发者轻松创建、发布、维护 API 。</p>
-</li>
-<li><p>市面上的接口管理平台都有哪些？</p>
-<ul>
-<li>Apifox：API 文档、API 调试、API Mock、API 自动化测试。公网 SaaS 版免费，私有化部署版收费。</li>
-<li>Swagger：Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。</li>
-<li>YApi：YApi 是由去哪网前端团队开源的一款接口管理工具，功能强大，可以轻松的自己部署。而且支持使用 docker 部署，使用成本很低了。</li>
-<li>Rap2：Rap2 是由阿里妈妈前端团队开源的一款接口管理工具，相对 YApi 来说，至少文档上面差一些，Github 上没有太多介绍，也没提及用 docker 部署，但也是一个选择吧。</li>
-<li>eolinker：eolinker 是一个接口管理服务网站，如果不想自己部署 YApi、Rap2 的团队可以使用，免费版的功能对于小型团队来说足够了。</li>
-<li>Postman：跨平台的管理工具，可以免费使用，支持 mock，支持团队协作，免费版本的限制主要在于每个月 1000 次的限制，包括 Mock 请求、API 请求等等，对于小型团队（3 ～ 5 人）应该是足够了。</li>
-<li>Apizza：极客专属的接口协作管理工具，在线模拟调试，快速生成 api 文档，导出离线版文档。</li>
-</ul>
-</li>
-<li><p>为什么需要存在接口管理平台 ？</p>
-<ul>
-<li><p>接口文档没有统一的规范，有的接口文档太粗糙，开发起来真费时。</p>
-</li>
-<li><p>后台接口还没开发完，我们的界面写完了但没有需要的接口数据进行调试。</p>
-</li>
-<li><p>哎，接口又修改了。从接口文档中看不出来改了哪，算了，重新做，默默加班。</p>
-</li>
-<li><p>这个历史模块找不到接口文档了，真悲催……</p>
-</li>
-<li><p>配合 Autos 自动生成 TypeScript 的接口调用或者类型代码。</p>
-</li>
-</ul>
-</li>
-<li><p>使用 Yapi 的好处？</p>
-<ul>
-<li>可以帮助开发者轻松创建、发布和维护不同项目，不同平台的 API 。</li>
-<li>权限管理、Mock Server 、数据导入（支持导入 swagger 、postman 、har 数据格式）、可视化接口管理、自动化测试、插件机制。</li>
-<li>配合 <a target="_blank" rel="noopener" href="https://tefe.top/">Autos</a> 自动生成 TypeScript 的<strong>接口调用</strong>或者<strong>类型代码</strong>。</li>
-<li>不像 Swagger 那样是随应用生和灭的（且线上环境下大多数须关闭）。</li>
-</ul>
-</li>
-</ol>
-<h2 id="内网部署"><a href="#内网部署" class="headerlink" title="内网部署"></a>内网部署</h2><ul>
-<li><p>环境要求</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/download/releases/">nodejs (12.18.3)</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/try/download/community2">mongodb (5.0.13)</a></li>
-</ul>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://hellosean1025.github.io/yapi/devops/index.html">安装</a></p>
-<ol>
-<li><p>mongodb</p>
-<ol>
-<li><p>版本选择 5.0.13</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666239961407.jpg" class="">
-</li>
-<li><p>执行安装</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666240133086.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666244464853.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666244535126.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666244653060.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666244920299.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666244996320.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666245331540.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666245675270.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666245748357.jpg" class="">
-</li>
-<li><p>配置环境变量（因为每次我们启动 MongoDB 服务的时候</p>
-<p>都需要在 dos 窗口中切换到 MongoDB 所在路径，然后执行 <strong>net start mongodb</strong> 命令来开</p>
-<p>启服务。所以每次手动开机开启 MongoDB 服务的时候都特别的麻烦，为了解决这个问题。我们可以</p>
-<p>将 MongoDB 配置到系统环境变量中。 下次在开机的时候可以直接打开或者以管理员身份打</p>
-<p>开 dos 窗口输入 <strong>net start mongodb</strong> 命令，无需切换到 MongoDB 所在路径进行）</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666247187430.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666247287647.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666247360192.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666247702367.jpg" class="">
-</li>
-<li><p>启动 mongoDB （win + r 输入 cmd 打开 dos 窗口后输入：<strong>net start mongodb</strong>）</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666248487181.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666248743309.jpg" class="">
-</li>
-<li><p>连接数据库 （ dos 窗口中输入：<strong>mongo</strong> ）</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666249135785.jpg" class=""></li>
-</ol>
-</li>
-<li><p>Yapi</p>
-<ol>
-<li><p>本地新建文件夹，用于安装 Yapi</p>
-</li>
-<li><p>vscode 内打开文件夹，新建终端，输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install yapi-cli --registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<p>后执行安装并等待安装完成</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666249866752.jpg" class="">
-</li>
-<li><p>启动 Yapi 服务 终端内继续输入：<strong>npx yapi server</strong></p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666250216875.jpg" class="">
-</li>
-<li><p>浏览器打开 <a target="_blank" rel="noopener" href="http://127.0.0.1:9090/">http://127.0.0.1:9090</a> 进入 Yapi 的配置安装服务</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666250880477.jpg" class="">
-</li>
-<li><p>点击<strong>开始部署</strong>，成功如下图所示</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666251528618.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666251457572.jpg" class="">
-</li>
-<li><p>切换到部署目录（<strong>第四步中所示</strong>），输入：<strong>node vendors&#x2F;server&#x2F;app.js</strong> 指令启动服务器, 然后在浏览器打开 <strong><a target="_blank" rel="noopener" href="http://127.0.0.1:3000/">http://127.0.0.1:3000</a></strong> 访问</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666251828374.jpg" class="">
-</li>
-<li><p>登录</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666251969317.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666252167567.jpg" class=""></li>
-</ol>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="使用（配合-Autos-自动生成-TypeScript-的接口调用或者类型代码）"><a href="#使用（配合-Autos-自动生成-TypeScript-的接口调用或者类型代码）" class="headerlink" title="使用（配合 Autos 自动生成 TypeScript 的接口调用或者类型代码）"></a>使用（配合 Autos 自动生成 TypeScript 的接口调用或者类型代码）</h2><ol>
-<li><p>Yapi 中导入接口</p>
-<ol>
-<li><p>获取后端提供的接口信息（Postman|HAR|Swagger|json）这里示例 Swagger。</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666324544200.jpg" class="">
-</li>
-<li><p>导入 .json 文件至 Yapi 中。</p>
-<ol>
-<li><p>创建新分组</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666324955603.jpg" class="">
-</li>
-<li><p>在新分组内添加项目</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666325057943.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666325148286.png" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666325232631.jpg" class="">
-</li>
-<li><p>导入 .json 文件</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666330886409.jpg" class="">
-
-<p>关于智能合并：可以理解为增量更新。默认模式为完全覆盖，会导致本次导入接口文档后会完全覆盖掉之前的接口信息。</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666330998704.jpg" class="">
-
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666331731665.jpg" class="">
-
-<p>至此，后端所提供的接口文档信息均已更新至 Yapi 中。</p>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>使用 <a target="_blank" rel="noopener" href="https://tefe.top/">Autos</a> 自动生成 TypeScript 的接口调用或者类型代码</p>
-<ol>
-<li><p><strong>Autos</strong> 依赖基于开源项目 <a target="_blank" rel="noopener" href="https://github.com/swagger-api/swagger-codegen">Swagger Codegen</a> 定制开发的 Java <a target="_blank" rel="noopener" href="https://github.com/gogoyqj/swagger-codegen">生成工具</a>，<strong>请确保您的平台已经安装 Java</strong></p>
-</li>
-<li><p>在项目中安装开发依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev auto-service</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 <strong>json2service.json</strong> 文件</p>
-<p>Autos 默认从当前目录下（默认项目根目录）的 json2service.json 文件读取主配置，我们也可以通过命令行参数 <code>-c, --config</code> 指定任意格式为 JSON 或者 JavaScript 的配置文件。</p>
-<p>示例：</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666334163914.jpg" class="">
-
-<p>在 Yapi 中 演示 &#x2F; Yapi 接口管理中复制<strong>远程链接地址</strong>（在 Yapi 中每次新建项目会自动生成）</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666334595087.jpg" class="">
-
-<p>回到项目中配置我们刚才创建好的 json2service.json 文件</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666334945818.jpg" class="">
-
-<ul>
-<li>url：Swagger 或者 Mock JSON 文档存放地址（<strong>必须</strong>且文件名必须为 <strong>yapi-swagger.json</strong> ），只需要配置即可，不需要在指定的位置真实创建，后续执行接口导入命令会判断是否存在，若不存在则自动在该文件指定的地址生成文件，作用是每次执行接口导入会通过该文件对比远程（Yapi）更新。</li>
-<li>remoteUrl：远程（Yapi）地址，作用是指定接口导入的远程目标地址。</li>
-<li>type：固定为 Yapi</li>
-<li>swaggerParser：Swagger 生成 TS 代码相关配置。-o：指定输出 typescript 代码目录。</li>
-</ul>
-</li>
-<li><p>到此 json2service.json 已<strong>配置完成</strong>，下面开始配置脚本命令执行接口导入</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666338633544.jpg" class="">
-
-<ul>
-<li>–clear：清空上次生成产物</li>
-<li>–quiet：自动全量使用远程文档，不显示 diff &amp; merge 页面（因之前在 Yapi 上导入接口时已选择智能合并，我理解其实就已经相当执行了一次增量更新所以到我们本地导入接口时只需要做和 Yapi 同步即可，不在需要去做差异化对比然后再选择性更新）</li>
-<li>-c：之前有提到过，Autos 默认从当前目录下（默认项目根目录）的 json2service.json 文件读取主配置，我们也可以通过命令行参数 <code>-c, --config</code> 指定任意格式为 JSON 或者 JavaScript 的配置文件。所以当前指定到 .&#x2F;src&#x2F;services&#x2F;json2service.json</li>
-</ul>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666339253739.jpg" class="">
-
-<p>到此，使用 <a target="_blank" rel="noopener" href="https://tefe.top/">Autos</a> 自动生成 TypeScript 的接口调用或者类型代码的操作已完成</p>
-</li>
-</ol>
-</li>
-<li><p>在项目内调用接口</p>
-<ol>
-<li><p>导出的接口文件，虽然已暴露出，但并不代表可以直接使用</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666341665283.jpg" class="">
-
-<p>如图上中 @ajax 报错。这是因为 Autos 自动生成代码时会默认为我们添加一个请求方法，而实际他本身并不存在，所以需要我们手动替换成我们自己的封装请求或者使用配置名别，例如：</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666342237322.jpg" class="">
-</li>
-<li><p>示例接口调用</p>
-<img src="/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/images/1666342556853.jpg" class="">
-
-<p>如上，使用 Autos 后，我们不在需要手动去定义接口的入参和出参类型，后台修改接口后只需要我们重新拉取一次接口信息 重新导入到 Yapi 中 然后项目内直接执行一次脚本即可。</p>
-</li>
-</ol>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/03/Yapi-%E6%90%AD%E5%BB%BA%EF%BD%9C%E6%8E%A5%E5%8F%A3%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/" data-id="clue693pu0000w706fzlv8sfv" data-title="Yapi-搭建｜接口导入导出" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/02/06/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2023-02-06T15:03:26.678Z" itemprop="datePublished">2023-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/02/06/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/02/06/hello-world/" data-id="clue693py0001w7068h2u9zud" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
